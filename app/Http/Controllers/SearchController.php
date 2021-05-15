@@ -17,6 +17,7 @@ class SearchController extends Controller
             ->search($request->input('query'));
         
         return response()->json([
+            'count' => $searchResults->count(),
             'result' => $searchResults->groupByType()
         ], 200);
     }
